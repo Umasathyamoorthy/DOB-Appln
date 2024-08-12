@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOB Calculation</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .container{
+            padding-top: 20px;
+        }
+        .dat{
+            padding-top: 20px;
+            
+        }
+        .btn{
+            background-color: rgb(0, 140, 255);
+            color:white;
+            padding-top: 5px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 5px;
+            border: 1px solid;
+            border-radius: 6px;
+
+            
+        }
+        .form-inputs{
+            text-align: center;
+            width:40%;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 5px;
+            
+
+        }
+        .hr{
+            border-color: black;
+            border-top: 5px solid-line;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+        <label for="dob">Date of Birth</label><input type="date" class="form-inputs" name="dob" id="dob">
+        </div>
+        <div class="dat"><button class="btn" id="btn" onclick="Calculate()">Calculate date</button>
+        </div>
+        <hr />
+        <div id="dispaly-data"></div>
+    </div>
+    <script>
+    //   document.getElementById("btn").addEventListener("click",function(){
+    //  console.log("hello");
+    //    });
+    //
+    function Calculate(){
+        let input = document.getElementById("dob").value;
+        if(Date.parse(input))
+        {
+            let inputDate = new Date(input);
+            let currentDate = new Date();
+            document.getElementById("dispaly-data").innerHTML=`
+            Input value: ${input} <br>
+            Formatted Date: ${inputDate}<br>
+            current Date: ${currentDate}
+            `;
+        }
+        
+    }  
+    </script>
+    
+</body>
+</html>
