@@ -41,6 +41,9 @@
             border-color: black;
             border-top: 5px solid-line;
         }
+        .data{
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -51,7 +54,7 @@
         <div class="dat"><button class="btn" id="btn" onclick="Calculate()">Calculate date</button>
         </div>
         <hr />
-        <div id="dispaly-data"></div>
+        <div id="dispaly-data" class="data"></div>
     </div>
     <script>
     //   document.getElementById("btn").addEventListener("click",function(){
@@ -64,10 +67,21 @@
         {
             let inputDate = new Date(input);
             let currentDate = new Date();
+
+            let milliSecDiff = parseInt(currentDate.getTime()) - parseInt(inputDate.getTime());
+            let secDiff = Math.floor(milliSecDiff / 1000);
+            let minDiff = Math.floor(secDiff / 60);
+            let hrDiff = Math.floor(minDiff / 60);
+            let dayDiff = Math.floor(hrDiff / 24);
+            
             document.getElementById("dispaly-data").innerHTML=`
             Input value: ${input} <br>
-            Formatted Date: ${inputDate}<br>
-            current Date: ${currentDate}
+            current Date: ${currentDate}<br>
+            Day Difference: ${dayDiff}<br>
+            Hour Difference: ${hrDiff}<br>
+            Minute Difference: ${minDiff}<br>
+            Second Difference: ${secDiff}<br>
+            MilliSecond: ${milliSecDiff}
             `;
         }
         
